@@ -2,7 +2,7 @@ package unidad1;
 
 import java.util.Scanner;
 
-public class EJERCICIO7 {
+public class sueldo {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

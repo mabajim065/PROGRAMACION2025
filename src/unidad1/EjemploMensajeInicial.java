@@ -21,7 +21,8 @@ public class EjemploMensajeInicial {
 	    
 	    System.out.println("el numero 1 es " + numero1);
 	    System.out.println ("el numero 2 es " +   numero2);
-	    System.out.println ("el maximo valor entero es " + interger.MAX_VALUE);
+	    Object interger;
+		System.out.println ("el maximo valor entero es " );
 	    
 	    
 	    
