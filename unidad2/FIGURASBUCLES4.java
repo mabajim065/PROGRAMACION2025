@@ -1,6 +1,6 @@
 package unidad2;
 
-public class EJEMPLOFIGURAS {
+public class FIGURASBUCLES4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -20,6 +20,8 @@ public class EJEMPLOFIGURAS {
 			// pasamos a la siguiente linea
 			System.out.println();
 		}
+
+//		teclado.close();
 	}
 
 }

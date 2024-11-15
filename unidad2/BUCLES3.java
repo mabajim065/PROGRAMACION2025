@@ -27,6 +27,9 @@ public class BUCLES3 {
 			if (num == numgenerado) {
 				System.out.println("felicidades , has acertado");
 				numintentos = 0;
+				break;
+				// otra opcion seria poner un booleano que indique el final cuando sea true o
+				// cuando sea false
 			} else {
 				// si no ha acertado es que esta en el else, hacemos el valor absoluto(pasa a
 				// positivo si es negativo) y comprobamos que la distancia entre los numeros es

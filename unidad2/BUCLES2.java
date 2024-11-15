@@ -1,5 +1,7 @@
 package unidad2;
 
+import java.util.Scanner;
+
 public class BUCLES2 {
 
 	public static void main(String[] args) {
@@ -14,6 +16,13 @@ public class BUCLES2 {
 				System.out.println(i);
 		}
 
+//		bucle que diga los numero de 1 a 40
+		for (int i = 0; i <= 40; i++) {
+			if ((i + 1) % 2 != 0)
+				continue;
+
+			System.out.println(i);
+		}
 		// otra forma de hacerlo seria
 		System.out.println(" version 2 ;");
 		for (int i = 2; i <= 20; i = i + 2) {
@@ -30,6 +39,40 @@ public class BUCLES2 {
 				System.out.println((j + 1) + " x " + (i + 1) + " = " + (j + 1) * (i + 1));
 			}
 
+			for (int i = 0; i <= 40; i++) {
+				if ((i + 1) % 2 != 0)
+					continue;
+
+				System.out.println(i);
+			}
+
+			Scanner teclado = new Scanner(System.in);
+			// leer de teclado 10 numeros y sacar la media, el maximo y el minimo
+
+			int i = 0;
+			int max = Integer.MIN_VALUE, min = Integer.MIN_VALUE;
+
+			double media = 0, suma = 0;
+			while (i < 5) {
+				System.out.println("introduce el numero " + (i + 1) + ":");
+				int num = teclado.nextInt();
+				suma = suma + num;
+
+				// si el numero que leo es el maximo hastta este momento , ese numero es el
+				// numevo maximo, por llo cual se lo asigno como valor maximo
+
+				if (num > max)
+					max = num;
+
+				if (num < min)
+					min = num;
+				i++;
+			}
+			media = suma / 5;
+
+			System.out.println(" la media es " + media);
+
+			teclado.close();
 		}
 	}
 
