@@ -42,8 +42,8 @@ public class GENERADORNOMBRE_BUCLES5 {
 
 		}
 		System.out.println(" el nombre del notas es : " + nombre);
-		// leer un numero por teclado y decir si es primo o no , un numero es primo si
-		// solo le divide el uno o el mismo
+
+		//
 
 	}
 
