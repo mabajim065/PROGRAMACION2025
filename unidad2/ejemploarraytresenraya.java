@@ -110,6 +110,7 @@ public class ejemploarraytresenraya {
 			}
 		}
 		System.out.println("has ganado, " + ganador);
+
 		teclado.close();
 	}
 }
