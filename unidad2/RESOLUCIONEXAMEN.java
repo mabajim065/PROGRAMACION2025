@@ -125,6 +125,12 @@ public class RESOLUCIONEXAMEN {
 				listadomodelostock[i] = modelo;
 		}
 //--------------------------------------------------------------------------
+		System.out.println(" el preciomaximo es : " + maxprecio);
+		System.out.println(" el preciominimo es : " + minprecio);
+		System.out.println(" el el nombre de modelo maximo es : " + modelomax);
+		System.out.println(" el el nombre de modelo minimo es : " + modelomin);
+		System.out.println(" la mdedia de precio es : " + mediaprecio);
+		System.out.println(" la suma de stock en descenso es : " + sumastock);
 		teclado.close();
 	}
 
