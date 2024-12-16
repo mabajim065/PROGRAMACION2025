@@ -1,14 +1,14 @@
-package unidad1;
+package unidad11;
 
 import java.util.Scanner;
 
-public class sueldo {
+public class EJERCICIO7 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int  sueldobruto ;
-		int impuestos;
+		int  sueldobruto= 3425;
+		int impuestos= 534;
 		Scanner teclado = new Scanner (System.in);
 
 	//  mensaje leer  teclado 

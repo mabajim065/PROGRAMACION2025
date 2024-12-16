@@ -1,4 +1,4 @@
-package unidad1;
+package unidad11;
 import java.util.Scanner;
 
 public class Media {  // Nombramos la clase

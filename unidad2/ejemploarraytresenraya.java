@@ -70,11 +70,12 @@ public class ejemploarraytresenraya {
 			// posicionamos la ficha en su lugar
 			tablero[jugadaOposy][jugadaXposx] = 'O';
 
-//-----------------------------------------------------------------------------------					
+			int x = 0;
+			// -----------------------------------------------------------------------------------
 			// PRIMERO COMPROBAMOS LAS FILAS
 			for (int y = 0; y <= 2; y++) {
 				cantidadx = 0;
-				for (int x = 0; x <= 2; x++) {
+				for (int x1 = 0; x1 <= 2; x1++) {
 
 				}
 				if (tablero[x][y] == 'x')
@@ -93,7 +94,7 @@ public class ejemploarraytresenraya {
 				// PRIMERO COMPROBAMOS LAS FILAS
 				for (int y = 0; y <= 2; y++) {
 					cantidado = 0;
-					for (int x = 0; x <= 2; x++) {
+					for (int x1 = 0; x1 <= 2; x1++) {
 
 					}
 					if (tablero[x][y] == 'O')
