@@ -1,6 +1,6 @@
 package unidad3;
 
-public class ejemplousoobjetos {
+public class ejemlplousopersonaje {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,6 +26,8 @@ public class ejemplousoobjetos {
 		String nombre;
 		personaje aragorn = new personaje();
 		aragorn.fuerza = 13;
+
+		arma lanzapicas = new arma("lanza picas", "multiples a la vez", 0, 20, 0, 3);
 
 		System.out.println("el personaje tiene " + aragorn.inteligencia + "  puntos de inteligencia");
 		int golpe = 4;

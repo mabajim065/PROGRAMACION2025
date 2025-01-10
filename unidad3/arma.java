@@ -36,6 +36,25 @@ public class arma {
 	}
 
 	/**
+	 * 
+	 * @param nombre
+	 * @param descripcion
+	 * @param efecto(0-nada,1-veneno, 2-quemadura , 3-estreñimiento, 4-congelacion)
+	 * @param ataquefisico
+	 * @param ataquemagico
+	 * @param peso
+	 */
+	public arma(String nombre, String descripcion, int efecto, int ataquefisico, int ataquemagico, int peso) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.efecto = efecto;
+		this.ataquefisico = ataquefisico;
+		this.ataquemagico = ataquemagico;
+		this.peso = peso;
+	}
+
+	/**
 	 * GETTERS Y SETTERS DE LA CLASE
 	 * 
 	 * @return
