@@ -33,9 +33,10 @@ public class ejemlplousopersonaje {
 		int golpe = 4;
 		aragorn.recibirdanio(golpe);
 		System.out.println("los puntos de vidas que tienes son: " + aragorn.puntosvida);
-		System.out.println("tirada de ataque aragon: " + ((Object) aragorn).tiradaataque());
-		System.out.println("descripcion del arma :" + arcogelido.getdescripcion());
-		System.out.println("descripcion del arma :" + arcogelido.getdescripcion());
+		// System.out.println("tirada de ataque aragon: " + ((Object)
+		// aragorn).tiradaataque());
+		// System.out.println("descripcion del arma :" + arcogelido.getdescripcion());
+		// System.out.println("descripcion del arma :" + arcogelido.getdescripcion());
 
 	}
 
