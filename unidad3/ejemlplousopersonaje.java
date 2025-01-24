@@ -39,6 +39,7 @@ public class ejemlplousopersonaje {
 		// System.out.println("descripcion del arma :" + arcogelido.getdescripcion());
 
 		System.out.println("el arma principal  de aragon es : " + aragorn.armaprincipal());
+		System.out.println("datos del slime:" + slimeverde);
 	}
 
 }

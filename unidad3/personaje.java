@@ -6,6 +6,7 @@ public class personaje {
 	// variables miembro de la clase
 
 	// estas si son accequibles directamente dese el objeto
+	private int nivel;
 	public int fuerza;
 	public int inteligencia;
 	private int carisma;
@@ -25,6 +26,7 @@ public class personaje {
 	 * contructor vacio
 	 */
 
+	// fatan cosas
 	public personaje() {
 		System.out.println(" generando el personaje...");
 		this.fuerza = (int) (Math.random() * 20);
@@ -32,7 +34,33 @@ public class personaje {
 		this.carisma = (int) (Math.random() * 20);
 		this.puntosvida = (int) (Math.random() * 20);
 		this.puntospoder = (int) (Math.random() * 20);
+		this.nivel = (int) (Math.random() * 20);
 
+	}
+
+	/**
+	 * constructor que percibe todos los valores del objeto y los asigna a las
+	 * variables miembro.
+	 * 
+	 * @param fuerza
+	 * @param inteligencia
+	 * @param carisma
+	 * @param clase
+	 * @param puntosvida
+	 * @param puntospoder
+	 * @param armas
+	 */
+
+	public personaje(int fuerza, int inteligencia, int carisma, int clase, int puntosvida, int puntospoder,
+			ArrayList<arma> armas) {
+		super();
+		this.fuerza = fuerza;
+		this.inteligencia = inteligencia;
+		this.carisma = carisma;
+		this.clase = clase;
+		this.puntosvida = puntosvida;
+		this.puntospoder = puntospoder;
+		this.armas = armas;
 	}
 
 	/**
