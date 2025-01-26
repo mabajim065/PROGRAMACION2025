@@ -2,75 +2,107 @@ package unidad3;
 
 import java.util.ArrayList;
 
-public class personaje {
-	// variables miembro de la clase
+public class Personaje {
 
-	// estas si son accequibles directamente dese el objeto
-	private int nivel;
-	public int fuerza;
-	public int inteligencia;
+	//Variables miembro de la clase
+	//Todos los objetos que creemos las tendrán
+
+	//Las variables miembro y las funciones de una clase
+	//Pueden ser
+	// public publicas
+	// private privadas
+	// protected protegidas, solo las clases hijas pueden usarlas
+
+	public static final int CLASE_GUERRERO = 0;
+	public static final int CLASE_MAGO = 1;
+	public static final int CLASE_LADRON = 2;
+	public static final int CLASE_CABALLERIA = 3;
+	public static final int CLASE_CLERIGO = 4;
+	public static final int CLASE_PALADIN = 5;
+
+	//Por defecto si no ponemos nada las variables son publicas
+	protected int nivel;
+	private int fuerza;
+	private int inteligencia;
 	private int carisma;
 	public int clase;
-	// no son accequible directamente desde el objeto
-	public int puntosvida;
-	private int puntospoder;
+	//Si las ponemos privadas no serán accesibles directamente desde el objeto
+	private int puntosVida;
+	private int puntosPoder;
 
-	// para definir un arrYS LIST HAY QUE DEFINIR EL TIPO DE OBJETO QUE VA A
-	// ALMACENAR ENTRE<> AL CONTRARIO QUE CON UN ARRAY NORMAL QUE NO HACE FALTA
-	// DEFINIR EL TAMAÑO,, SEGUN AÑDIMOS ELEMENTOS AL ARRAYLIST VA HACIENDOSE mas
-	// GRANDE
+	//int listaNumeros[] = new int[10];
 
-	private ArrayList<arma> armas = new arrayList<arma>();
+	//Para definir un arraylist hay que decir el tipo de objeto que va a almacenar entre <>
+	//Al contrario que con un array normal, no hace falta definir el tamaño, segun 
+	//añadimos elementos al arraylist va haciendose mas grande
+	private ArrayList<Arma> armas = new ArrayList<Arma>();
+
+	//ArrayList<Integer> listaNumeros = new ArrayList<Integer>();
 
 	/**
-	 * contructor vacio
+	 * Constructor principal vacio
 	 */
+	public Personaje() {
 
-	// fatan cosas
-	public personaje() {
-		System.out.println(" generando el personaje...");
+		System.out.println("Generando el personaje...");
+
+		//Utilizamos this para señalar que la variable es miembro de la clase
+		//por si hubiera otra variable con el mismo nombre 
 		this.fuerza = (int) (Math.random() * 20);
 		this.inteligencia = (int) (Math.random() * 20);
 		this.carisma = (int) (Math.random() * 20);
-		this.puntosvida = (int) (Math.random() * 20);
-		this.puntospoder = (int) (Math.random() * 20);
+		this.puntosVida = (int) (Math.random() * 20);
+		this.puntosPoder = (int) (Math.random() * 20);
 		this.nivel = (int) (Math.random() * 20);
 
 	}
 
 	/**
-	 * constructor que percibe todos los valores del objeto y los asigna a las
-	 * variables miembro.
-	 * 
+	 * Constructor que recibe todos los valores del objeto y los asigna a las variables miembro
 	 * @param fuerza
 	 * @param inteligencia
 	 * @param carisma
 	 * @param clase
-	 * @param puntosvida
-	 * @param puntospoder
-	 * @param armas
+	 * @param puntosVida
+	 * @param puntosPoder
 	 */
-
-	public personaje(int fuerza, int inteligencia, int carisma, int clase, int puntosvida, int puntospoder,
-			ArrayList<arma> armas) {
+	public Personaje(int nivel, int fuerza, int inteligencia, int carisma, int clase, int puntosVida, int puntosPoder) {
 		super();
+		this.nivel = nivel;
 		this.fuerza = fuerza;
 		this.inteligencia = inteligencia;
 		this.carisma = carisma;
 		this.clase = clase;
-		this.puntosvida = puntosvida;
-		this.puntospoder = puntospoder;
-		this.armas = armas;
+		this.puntosVida = puntosVida;
+		this.puntosPoder = puntosPoder;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 
 	/**
-	 * funciones
-	 * 
-	 * @return
+	 * Esta funcion ejecuta una tirada de ataque que se calcula con 
+	 * un dado de 20 mas la fuerza
 	 * @return
 	 */
-	public void recibirdanio(int danio) {
-		this.puntosvida = this.puntosvida - danio;
+	public int tiradaAtaque() {
+
+		//Ejecutamos la tirada de ataque
+		return this.fuerza + (int) (Math.random() * 21);
+	}
+
+	//Funciones
+
+	//Las funciones al declararse deben de definir si son publicas/privadas/protegidas
+	//y el tipo de dato que devuelven
+	//En este caso no quiero que devuelva nada asi que pongo void
+	public void recibirDanio(int danio) {
+		this.puntosVida = this.puntosVida - danio;
 	}
 
 	public int getFuerza() {
@@ -105,48 +137,60 @@ public class personaje {
 		this.clase = clase;
 	}
 
-	public int getPuntosvida() {
-		return puntosvida;
+	public int getPuntosVida() {
+		return puntosVida;
 	}
 
-	public void setPuntosvida(int puntosvida) {
-		this.puntosvida = puntosvida;
+	public void setPuntosVida(int puntosVida) {
+		this.puntosVida = puntosVida;
 	}
 
-	public int getPuntospoder() {
-		return puntospoder;
+	public int getPuntosPoder() {
+		return puntosPoder;
 	}
 
-	public void setPuntospoder(int puntospoder) {
-		this.puntospoder = puntospoder;
+	public void setPuntosPoder(int puntosPoder) {
+		this.puntosPoder = puntosPoder;
 	}
 
-	public Arraylist<Arma> getArmas() {
+	public ArrayList<Arma> getArmas() {
 		return armas;
 	}
 
-	public void setArmas(Arraylist<Arma> armas) {
+	public void setArmas(ArrayList<Arma> armas) {
 		this.armas = armas;
 	}
 
-	public void addarma(arma armarecibida) {
-		this.armas.add(armarecibida);
-
+	/**
+	 * Recibe un arma y la añade a la lista de armas del personaje
+	 * @param armaRecibida objeto de tipo arma que añade al personaje
+	 */
+	public void addArma(Arma armaRecibida) {
+		//añadimos con add el arma recibida 
+		//En la ultima posicion del arraylist de armas
+		this.armas.add(armaRecibida);
 	}
-//añadimos con add el arma recibida . em la ultima posicion del arraylist de armas.
 
 	/**
-	 * la funcion devuelve la primera arma de la lista de armas que se supone la
-	 * principal si la lista de armas esta vaci adevuelve null
-	 * 
-	 * @return devuelve el arma principal del personaje
+	 * La función devuelve la primera arma de la lista de armas que se supone la principal
+	 * Si la lista de armas esta vacia devuelve null
+	 * @return Devuelve el arma principal del personaje o null si no tiene armas
 	 */
-	public arma armaprincipal() {
-		// solo cogemos el arma de la posicion 0 si en la lista de armas hay por lo
-		// menos
+	public Arma armaPrincipal() {
+
+		//Solo cogemos el arma de la posicion 0 si en la lista de armas
+		//hay al menos 1 arma
 		if (armas.size() >= 1)
 			return this.armas.get(0);
+
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Personaje [nivel=" + nivel + ",fuerza=" + fuerza + ", inteligencia=" + inteligencia + ", carisma="
+				+ carisma + ", clase=" + clase + ", puntosVida=" + puntosVida + ", puntosPoder=" + puntosPoder
+				+ ", armas=" + armas + "]";
 	}
 
 }
