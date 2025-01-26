@@ -1,16 +1,22 @@
 package unidad3;
 
-/*
- * La clase arma sirve para guardar las caracteristicas de un arma
+import java.util.Arrays;
+
+/**
+ * La clase Arma sirve para guardar las caracteristicas de un arma
  * La podrán llevar los personajes del juego
  */
-public class arma {
+public class Arma {
 
-	// Nombre del arma, es importante elegir algo que de miedo al enemigo
-	String nombre = "";
-	// Descripcion del arma
-	private String descripcion = "Arma  por defecto, no hace pupa";
-	// Efecto que inflinge
+	/********************************************
+	 * VARIABLES MIEMBRO DE LA CLASE
+	 ********************************************/
+
+	//Nombre del arma, es importante elegir algo que de miedo al enemigo
+	private String nombre = "";
+	//Descripcion del arma
+	private String descripcion = "";
+	//Efecto que inflinge
 	private int efecto = 0;
 
 	private int ataqueFisico = 0;
@@ -18,44 +24,42 @@ public class arma {
 	private double peso = 10;
 	private int clasePermitida[];
 
-	/***************************************************************
-	 * CONTRUCTORES DE LA CLASE
-	 ****************************************************************/
+	/********************************************
+	 * CONSTRUCTORES DE LA CLASE
+	 ********************************************/
 
-	public arma() {
-		System.out.println("Se ha credado un Arma");
+	public Arma() {
+		System.out.println("Se ha creado un Arma");
 		this.peso = Math.random() * 5;
-		this.setAtaqueFisico((int) (Math.random() * 18) + 2);
+		this.ataqueFisico = (int) (Math.random() * 18) + 2;
 		this.efecto = (int) (Math.random() * 5);
 		this.descripcion = "Arma por defecto, no hace pupa";
 	}
 
 	/**
-	 * Contructor que recive todos los datos del objeto y los asigna a las variables
-	 * miembro
-	 * 
+	 * Constructor que recibe todos los datos del objeto y los asigna a las variables miembro
 	 * @param nombre
 	 * @param descripcion
-	 * @param efecto(0-    nada, 1- veneno,2-quemadura,3-estreñimiento,
-	 *                     4-congelación)
+	 * @param efecto (0- nada, 1- veneno,2-quemadura,3-estreñimiento, 4-congelación)
 	 * @param ataqueFisico
 	 * @param ataqueMagico
 	 * @param peso
+	 * 
 	 */
-
-	public arma(String nombre, String descripcion, int efecto, int ataqueFisico, int ataqueMagico, double peso) {
+	public Arma(String nombre, String descripcion, int efecto, int ataqueFisico, int ataqueMagico, double peso) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.efecto = efecto;
-		this.setAtaqueFisico(ataqueFisico);
+		this.ataqueFisico = ataqueFisico;
 		this.ataqueMagico = ataqueMagico;
 		this.peso = peso;
 	}
 
-	/**************************************************************
+	/********************************************
 	 * GETTERS Y SETTERS DE LA CLASE
-	 *************************************************************/
+	 ********************************************/
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -68,20 +72,12 @@ public class arma {
 		this.descripcion = valorDescripcion;
 	}
 
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-
-	public void setataqueFisico(int ataqueFisico) {
-		this.setAtaqueFisico(ataqueFisico);
-	}
-
-	public void setataqueMagico(int ataqueMagico) {
-		this.ataqueMagico = ataqueMagico;
-	}
-
 	public int getEfecto() {
 		return efecto;
+	}
+
+	public void setEfecto(int efecto) {
+		this.efecto = efecto;
 	}
 
 	public int getAtaqueFisico() {
@@ -90,6 +86,37 @@ public class arma {
 
 	public void setAtaqueFisico(int ataqueFisico) {
 		this.ataqueFisico = ataqueFisico;
+	}
+
+	public int getAtaqueMagico() {
+		return ataqueMagico;
+	}
+
+	public void setAtaqueMagico(int ataqueMagico) {
+		this.ataqueMagico = ataqueMagico;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+	public int[] getClasePermitida() {
+		return clasePermitida;
+	}
+
+	public void setClasePermitida(int[] clasePermitida) {
+		this.clasePermitida = clasePermitida;
+	}
+
+	@Override
+	public String toString() {
+		return "Arma [nombre=" + nombre + ", descripcion=" + descripcion + ", efecto=" + efecto + ", ataqueFisico="
+				+ ataqueFisico + ", ataqueMagico=" + ataqueMagico + ", peso=" + peso + ", clasePermitida="
+				+ Arrays.toString(clasePermitida) + "]";
 	}
 
 }
