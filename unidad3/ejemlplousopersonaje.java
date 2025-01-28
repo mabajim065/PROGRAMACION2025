@@ -1,6 +1,6 @@
 package unidad3;
 
-public class EjemploUsoPersonaje {
+public class ejemlplousopersonaje {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

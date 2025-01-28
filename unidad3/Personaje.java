@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Personaje {
 
-	//Variables miembro de la clase
-	//Todos los objetos que creemos las tendrán
+	// Variables miembro de la clase
+	// Todos los objetos que creemos las tendrán
 
-	//Las variables miembro y las funciones de una clase
-	//Pueden ser
+	// Las variables miembro y las funciones de una clase
+	// Pueden ser
 	// public publicas
 	// private privadas
 	// protected protegidas, solo las clases hijas pueden usarlas
@@ -20,24 +20,25 @@ public class Personaje {
 	public static final int CLASE_CLERIGO = 4;
 	public static final int CLASE_PALADIN = 5;
 
-	//Por defecto si no ponemos nada las variables son publicas
+	// Por defecto si no ponemos nada las variables son publicas
 	protected int nivel;
 	private int fuerza;
 	private int inteligencia;
 	private int carisma;
 	public int clase;
-	//Si las ponemos privadas no serán accesibles directamente desde el objeto
+	// Si las ponemos privadas no serán accesibles directamente desde el objeto
 	private int puntosVida;
 	private int puntosPoder;
 
-	//int listaNumeros[] = new int[10];
+	// int listaNumeros[] = new int[10];
 
-	//Para definir un arraylist hay que decir el tipo de objeto que va a almacenar entre <>
-	//Al contrario que con un array normal, no hace falta definir el tamaño, segun 
-	//añadimos elementos al arraylist va haciendose mas grande
+	// Para definir un arraylist hay que decir el tipo de objeto que va a almacenar
+	// entre <>
+	// Al contrario que con un array normal, no hace falta definir el tamaño, segun
+	// añadimos elementos al arraylist va haciendose mas grande
 	private ArrayList<Arma> armas = new ArrayList<Arma>();
 
-	//ArrayList<Integer> listaNumeros = new ArrayList<Integer>();
+	// ArrayList<Integer> listaNumeros = new ArrayList<Integer>();
 
 	/**
 	 * Constructor principal vacio
@@ -86,21 +87,23 @@ public class Personaje {
 	}
 
 	/**
-	 * Esta funcion ejecuta una tirada de ataque que se calcula con 
-	 * un dado de 20 mas la fuerza
+	 * Esta funcion ejecuta una tirada de ataque que se calcula con un dado de 20
+	 * mas la fuerza
+	 * 
 	 * @return
 	 */
 	public int tiradaAtaque() {
 
-		//Ejecutamos la tirada de ataque
+		// Ejecutamos la tirada de ataque
 		return this.fuerza + (int) (Math.random() * 21);
 	}
 
-	//Funciones
+	// Funciones
 
-	//Las funciones al declararse deben de definir si son publicas/privadas/protegidas
-	//y el tipo de dato que devuelven
-	//En este caso no quiero que devuelva nada asi que pongo void
+	// Las funciones al declararse deben de definir si son
+	// publicas/privadas/protegidas
+	// y el tipo de dato que devuelven
+	// En este caso no quiero que devuelva nada asi que pongo void
 	public void recibirDanio(int danio) {
 		this.puntosVida = this.puntosVida - danio;
 	}
@@ -163,23 +166,25 @@ public class Personaje {
 
 	/**
 	 * Recibe un arma y la añade a la lista de armas del personaje
+	 * 
 	 * @param armaRecibida objeto de tipo arma que añade al personaje
 	 */
 	public void addArma(Arma armaRecibida) {
-		//añadimos con add el arma recibida 
-		//En la ultima posicion del arraylist de armas
+		// añadimos con add el arma recibida
+		// En la ultima posicion del arraylist de armas
 		this.armas.add(armaRecibida);
 	}
 
 	/**
-	 * La función devuelve la primera arma de la lista de armas que se supone la principal
-	 * Si la lista de armas esta vacia devuelve null
+	 * La función devuelve la primera arma de la lista de armas que se supone la
+	 * principal Si la lista de armas esta vacia devuelve null
+	 * 
 	 * @return Devuelve el arma principal del personaje o null si no tiene armas
 	 */
 	public Arma armaPrincipal() {
 
-		//Solo cogemos el arma de la posicion 0 si en la lista de armas
-		//hay al menos 1 arma
+		// Solo cogemos el arma de la posicion 0 si en la lista de armas
+		// hay al menos 1 arma
 		if (armas.size() >= 1)
 			return this.armas.get(0);
 
