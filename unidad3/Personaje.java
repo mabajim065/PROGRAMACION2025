@@ -47,8 +47,8 @@ public class Personaje {
 
 		System.out.println("Generando el personaje...");
 
-		//Utilizamos this para señalar que la variable es miembro de la clase
-		//por si hubiera otra variable con el mismo nombre 
+		// Utilizamos this para señalar que la variable es miembro de la clase
+		// por si hubiera otra variable con el mismo nombre
 		this.fuerza = (int) (Math.random() * 20);
 		this.inteligencia = (int) (Math.random() * 20);
 		this.carisma = (int) (Math.random() * 20);
@@ -59,7 +59,9 @@ public class Personaje {
 	}
 
 	/**
-	 * Constructor que recibe todos los valores del objeto y los asigna a las variables miembro
+	 * Constructor que recibe todos los valores del objeto y los asigna a las
+	 * variables miembro
+	 * 
 	 * @param fuerza
 	 * @param inteligencia
 	 * @param carisma

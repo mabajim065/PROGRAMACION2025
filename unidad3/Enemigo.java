@@ -13,15 +13,16 @@ public class Enemigo extends Personaje {
 	public Enemigo() {
 		super();
 		// TODO Auto-generated constructor stub
-		//Generamos la experiencia dependiendo del nivel, cada nivel son 100 puntos extras de experiencia
-		//y un extra aleatorio que sera mas alto dependiendo del nivel
+		// Generamos la experiencia dependiendo del nivel, cada nivel son 100 puntos
+		// extras de experiencia
+		// y un extra aleatorio que sera mas alto dependiendo del nivel
 		int rangoExperiencia = this.nivel * 20;
 		int numFaccion = (int) (Math.random() * 3);
 		this.pExperiencia = this.getNivel() * 100 + (int) (Math.random() * rangoExperiencia);
 
 		this.dinero = (this.getNivel() * 100 + (int) (Math.random() * rangoExperiencia)) / 4;
 
-		//dependiendo del numero de faccion asignamos el enemigo a un facción o otra
+		// dependiendo del numero de faccion asignamos el enemigo a un facción o otra
 		switch (numFaccion) {
 		case 0:
 			this.faccion = this.BOSQUE_OSCURO;
@@ -38,6 +39,7 @@ public class Enemigo extends Personaje {
 
 	/**
 	 * Contructor que recibe todos los valores de un enemigo y se los asigna
+	 * 
 	 * @param nivel
 	 * @param fuerza
 	 * @param inteligencia
@@ -47,15 +49,15 @@ public class Enemigo extends Personaje {
 	 * @param puntosPoder
 	 * @param pExperiencia
 	 * @param dinero
-	 * @param faccion (BOSQUE_OSCURO, RUINAS_ROJAS, PLAGA_VERDE)
+	 * @param faccion      (BOSQUE_OSCURO, RUINAS_ROJAS, PLAGA_VERDE)
 	 */
 	public Enemigo(int nivel, int fuerza, int inteligencia, int carisma, int clase, int puntosVida, int puntosPoder,
 			int pExperiencia, int dinero, String faccion) {
 
-		//llamamos al constructor de personaje con los datos de la parte del padre
+		// llamamos al constructor de personaje con los datos de la parte del padre
 		super(nivel, fuerza, inteligencia, carisma, clase, puntosVida, puntosPoder);
 
-		//Y los datos especificos de enemigo los asigno
+		// Y los datos especificos de enemigo los asigno
 		this.pExperiencia = pExperiencia;
 		this.dinero = dinero;
 		this.faccion = faccion;
@@ -85,12 +87,14 @@ public class Enemigo extends Personaje {
 		this.faccion = faccion;
 	}
 
-	//@Override sirve para sobreescribir en una clase hijo una función que tiene el padre
-	//Y queremos modificar
+	// @Override sirve para sobreescribir en una clase hijo una función que tiene el
+	// padre
+	// Y queremos modificar
 	@Override
 	public String toString() {
-		//Para utilizar las funciones que heredamos del padre utilizamos la palabra reservada 
-		//super
+		// Para utilizar las funciones que heredamos del padre utilizamos la palabra
+		// reservada
+		// super
 		return super.toString() + " Enemigo [pExperiencia=" + pExperiencia + ", dinero=" + dinero + ", faccion="
 				+ faccion + ", clase=" + clase + "]";
 	}
