@@ -1,10 +1,17 @@
 package unidad3ejercicios;
 
 public class Recuerdo {
+
+	/***********************
+	 * VARIABLES MIEMBRO
+	 ************************/
 	private String nombre; // Aquí guardamos el nombre del recuerdo
 	private int duracion; // La duración del recuerdo, de 1 a 5 minutos
 	private int fidelidad; // La fidelidad, que es un porcentaje de 1 a 100
 
+	/************************
+	 * VARIABLES ESTATICAS
+	 ************************/
 	// Estas son las constantes que definen los rangos válidos para duración y
 	// fidelidad
 	public static final int MIN_DURACION = 1;

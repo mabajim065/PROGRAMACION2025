@@ -1,8 +1,12 @@
 package unidad3ejercicios;
 
+import java.util.ArrayList;
+
 public class Pensamiento {
 
-	import java.util.ArrayList;
+	/***********************
+	 * VARIABLES MIEMBRO
+	 ************************/
 	private String nombre; // Nombre del pensamiento
 	private String descripcion; // Descripción del pensamiento
 	public int importancia; // Importancia del pensamiento (1 a 10)
@@ -12,6 +16,9 @@ public class Pensamiento {
 	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos asociados a este pensamiento
 	private ArrayList<Emocion> listaEmociones; // Lista de emociones asociadas a este pensamiento
 
+	/************************
+	 * VARIABLES ESTATICAS
+	 ************************/
 	// Definimos las constantes para las categorías y tipos de pensamiento
 	public static final int SOCIAL = 1;
 	public static final int RACIONAL = 2;
@@ -25,27 +32,37 @@ public class Pensamiento {
 
 	// Constructor vacío, con valores predeterminados
 	public Pensamiento() {
-	        this.nombre = "";
-	        this.descripcion = "";
-	        this.importancia = 5;
-	        this.categoria = RACIONAL;
-	        this.tipo = PURO;
-	        this.activo = true;
-	        this.listaRecuerdos = new ArrayList<>();
-	        this.listaEmociones = new ArrayList<>();
-	    }
+		this.nombre = "";
+		this.descripcion = "";
+		this.importancia = 5;
+		this.categoria = RACIONAL;
+		this.tipo = PURO;
+		this.activo = true;
+		this.listaRecuerdos = new ArrayList<>();
+		this.listaEmociones = new ArrayList<>();
+	}
 
+	/************************************************************
+	 * CONSTRUCTORES
+	 * 
+	 * @param nombre
+	 * @param descripcion
+	 * @param importancia
+	 * @param categoria
+	 * @param tipo
+	 * @param activo
+	 */
 	// Constructor con parámetros para definir todos los valores
 	public Pensamiento(String nombre, String descripcion, int importancia, int categoria, int tipo, boolean activo) {
-	        this.nombre = nombre;
-	        this.descripcion = descripcion;
-	        this.importancia = importancia;
-	        this.categoria = categoria;
-	        this.tipo = tipo;
-	        this.activo = activo;
-	        this.listaRecuerdos = new ArrayList<>();
-	        this.listaEmociones = new ArrayList<>();
-	    }
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.importancia = importancia;
+		this.categoria = categoria;
+		this.tipo = tipo;
+		this.activo = activo;
+		this.listaRecuerdos = new ArrayList<>();
+		this.listaEmociones = new ArrayList<>();
+	}
 
 	// Este método valida si el pensamiento es válido o no
 	public int esValido() {
@@ -53,15 +70,17 @@ public class Pensamiento {
 		// pensamiento
 		if (tipo == GENERADO_RECUERDO || tipo == MIXTO) {
 			for (Recuerdo recuerdo : listaRecuerdos) {
-				if (!recuerdo.esFiel())
+				if (!recuerdo.esFiel()) {
 					return 2; // Si el recuerdo no es fiel, el pensamiento es inválido
+				}
 			}
 		}
 
 		if (tipo == GENERADO_EMOCION || tipo == MIXTO) {
 			for (Emocion emocion : listaEmociones) {
-				if (!emocion.esFiable())
+				if (!emocion.esFiable()) {
 					return 3; // Si la emoción no es fiable, el pensamiento es inválido
+				}
 			}
 		}
 
@@ -77,8 +96,9 @@ public class Pensamiento {
 		// involucradas
 		if (importancia >= 8) {
 			for (Emocion emocion : listaEmociones) {
-				if (emocion.esFiable())
+				if (emocion.esFiable()) {
 					return 5; // Si la emoción es fiable, no es válido
+				}
 			}
 		}
 
@@ -121,13 +141,13 @@ public class Pensamiento {
 		// Mostramos los recuerdos
 		System.out.println("\nRecuerdos: ");
 		for (Recuerdo recuerdo : listaRecuerdos) {
-			char[] recuento;
-			System.out.println(recuento);
+			System.out.println(recuerdo); // Se asume que la clase Recuerdo tiene un método toString()
 		}
 
 		// Mostramos las emociones
 		System.out.println("\nEmociones: ");
 		for (Emocion emocion : listaEmociones) {
-			System.out.println(emocion);
+			System.out.println(emocion); // Se asume que la clase Emocion tiene un método toString()
 		}
+	}
 }
