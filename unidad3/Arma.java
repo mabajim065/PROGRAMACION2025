@@ -3,8 +3,8 @@ package unidad3;
 import java.util.Arrays;
 
 /**
- * La clase Arma sirve para guardar las caracteristicas de un arma
- * La podrán llevar los personajes del juego
+ * La clase Arma sirve para guardar las caracteristicas de un arma La podrán
+ * llevar los personajes del juego
  */
 public class Arma {
 
@@ -12,11 +12,11 @@ public class Arma {
 	 * VARIABLES MIEMBRO DE LA CLASE
 	 ********************************************/
 
-	//Nombre del arma, es importante elegir algo que de miedo al enemigo
+	// Nombre del arma, es importante elegir algo que de miedo al enemigo
 	private String nombre = "";
-	//Descripcion del arma
+	// Descripcion del arma
 	private String descripcion = "";
-	//Efecto que inflinge
+	// Efecto que inflinge
 	private int efecto = 0;
 
 	private int ataqueFisico = 0;
@@ -37,10 +37,13 @@ public class Arma {
 	}
 
 	/**
-	 * Constructor que recibe todos los datos del objeto y los asigna a las variables miembro
+	 * Constructor que recibe todos los datos del objeto y los asigna a las
+	 * variables miembro
+	 * 
 	 * @param nombre
 	 * @param descripcion
-	 * @param efecto (0- nada, 1- veneno,2-quemadura,3-estreñimiento, 4-congelación)
+	 * @param efecto       (0- nada, 1- veneno,2-quemadura,3-estreñimiento,
+	 *                     4-congelación)
 	 * @param ataqueFisico
 	 * @param ataqueMagico
 	 * @param peso

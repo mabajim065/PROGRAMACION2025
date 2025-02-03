@@ -4,21 +4,9 @@ import java.util.ArrayList;
 
 public class Pensamiento {
 
-	/***********************
-	 * VARIABLES MIEMBRO
-	 ************************/
-	private String nombre; // Nombre del pensamiento
-	private String descripcion; // Descripción del pensamiento
-	public int importancia; // Importancia del pensamiento (1 a 10)
-	private int categoria; // La categoría del pensamiento (social, racional, etc.)
-	private int tipo; // El tipo de pensamiento (puros, generados por recuerdos, etc.)
-	private boolean activo; // Si el pensamiento está activo o no
-	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos asociados a este pensamiento
-	private ArrayList<Emocion> listaEmociones; // Lista de emociones asociadas a este pensamiento
-
-	/************************
+	/******************************************************************************************************
 	 * VARIABLES ESTATICAS
-	 ************************/
+	 ******************************************************************************************************/
 	// Definimos las constantes para las categorías y tipos de pensamiento
 	public static final int SOCIAL = 1;
 	public static final int RACIONAL = 2;
@@ -30,6 +18,21 @@ public class Pensamiento {
 	public static final int GENERADO_EMOCION = 3;
 	public static final int MIXTO = 4;
 
+	/******************************************************************************************************
+	 * VARIABLES MIEMBROS
+	 ******************************************************************************************************/
+	private String nombre; // Nombre del pensamiento
+	private String descripcion; // Descripción del pensamiento
+	public int importancia; // Importancia del pensamiento (1 a 10)
+	private int categoria; // La categoría del pensamiento (social, racional, etc.)
+	private int tipo; // El tipo de pensamiento (puros, generados por recuerdos, etc.)
+	private boolean activo; // Si el pensamiento está activo o no
+	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos asociados a este pensamiento
+	private ArrayList<Emocion> listaEmociones; // Lista de emociones asociadas a este pensamiento
+
+	/******************************************************************************************************
+	 * CONSTRUCTORES
+	 ******************************************************************************************************/
 	// Constructor vacío, con valores predeterminados
 	public Pensamiento() {
 		this.nombre = "";
@@ -42,8 +45,9 @@ public class Pensamiento {
 		this.listaEmociones = new ArrayList<>();
 	}
 
-	/************************************************************
-	 * CONSTRUCTORES
+	/**************************************
+	 * CONSTRUCTOR CON PARÁMETROS
+	 *************************************
 	 * 
 	 * @param nombre
 	 * @param descripcion
@@ -64,6 +68,9 @@ public class Pensamiento {
 		this.listaEmociones = new ArrayList<>();
 	}
 
+	/***********************************************************************************************************
+	 * METODOS Y FUNCIONES
+	 ***********************************************************************************************************/
 	// Este método valida si el pensamiento es válido o no
 	public int esValido() {
 		// Fase 1: Validamos si los recuerdos y emociones son fiables según el tipo de

@@ -2,20 +2,9 @@ package unidad3ejercicios;
 
 public class Emocion {
 
-	/***********************
-	 * VARIABLES MIEMBRO
-	 ************************/
-	private String nombre; // Nombre de la emoción
-	private String descripcion; // Descripción de la emoción
-	private int intensidad; // Intensidad de la emoción (1 a 10)
-	private int tipo; // El tipo de emoción (alegría, tristeza, etc.)
-	private int origen; // El origen de la emoción (visual, memoria, etc.)
-	private Recuerdo recuerdo; // Puede estar asociado a un recuerdo
-	private boolean activa; // Si la emoción está activa o no
-
-	/************************
+	/******************************************************************************************************
 	 * VARIABLES ESTATICAS
-	 ************************/
+	 ******************************************************************************************************/
 	// Definimos algunas constantes para los tipos y orígenes de emociones
 	public static final int ENVIDIA = 1;
 	public static final int PENA = 2;
@@ -32,9 +21,20 @@ public class Emocion {
 	public static final int TACTIL = 4;
 	public static final int GENERADA = 5;
 
-	/***********************
+	/******************************************************************************************************
+	 * VARIABLES MIEMBROS
+	 ******************************************************************************************************/
+	private String nombre; // Nombre de la emoción
+	private String descripcion; // Descripción de la emoción
+	private int intensidad; // Intensidad de la emoción (1 a 10)
+	private int tipo; // El tipo de emoción (alegría, tristeza, etc.)
+	private int origen; // El origen de la emoción (visual, memoria, etc.)
+	private Recuerdo recuerdo; // Puede estar asociado a un recuerdo
+	private boolean activa; // Si la emoción está activa o no
+
+	/******************************************************************************************************
 	 * CONSTRUCTORES
-	 ***********************/
+	 ******************************************************************************************************/
 	// Constructor vacío, se asignan valores por defecto
 	public Emocion() {
 		this.nombre = "";
@@ -58,11 +58,9 @@ public class Emocion {
 		this.activa = activa;
 	}
 
-	/********************************
-	 * FUNCIONES Y METODOS
-	 * 
-	 * @return
-	 **********************************/
+	/***********************************************************************************************************
+	 * METODOS Y FUNCIONES
+	 ***********************************************************************************************************/
 	// Este método dice si la emoción es positiva, solo será positiva si es Alegría,
 	// Amor o Placer
 	// Y además no puede ser generada
@@ -81,10 +79,6 @@ public class Emocion {
 	}
 
 	// toString muestra la emoción de forma bonita y ordenada
-
-	/**
-	 * @Override
-	 */
 	public String toString() {
 		return "Emoción: " + nombre + "\nDescripción: " + descripcion + "\nIntensidad: " + intensidad + "\nTipo: "
 				+ tipo + "\nOrigen: " + origen + "\nActiva: " + activa;
