@@ -5,7 +5,7 @@ public class Emocion {
 	/******************************************************************************************************
 	 * VARIABLES ESTATICAS
 	 ******************************************************************************************************/
-	// Definimos algunas constantes para los tipos y orígenes de emociones
+	// Estas son las emociones que podemos manejar, cada una con su numerito para identificarlas
 	public static final int ENVIDIA = 1;
 	public static final int PENA = 2;
 	public static final int ALEGRIA = 3;
@@ -15,6 +15,7 @@ public class Emocion {
 	public static final int ODIO = 7;
 	public static final int VERGUENZA = 8;
 
+	// Aquí definimos de dónde pueden venir esas emociones
 	public static final int VISUAL = 1;
 	public static final int MEMORIA = 2;
 	public static final int OLFATO = 3;
@@ -24,29 +25,29 @@ public class Emocion {
 	/******************************************************************************************************
 	 * VARIABLES MIEMBROS
 	 ******************************************************************************************************/
-	private String nombre; // Nombre de la emoción
-	private String descripcion; // Descripción de la emoción
-	private int intensidad; // Intensidad de la emoción (1 a 10)
-	private int tipo; // El tipo de emoción (alegría, tristeza, etc.)
-	private int origen; // El origen de la emoción (visual, memoria, etc.)
-	private Recuerdo recuerdo; // Puede estar asociado a un recuerdo
-	private boolean activa; // Si la emoción está activa o no
+	private String nombre; // Cómo se llama la emoción
+	private String descripcion; // Un poco de contexto sobre la emoción
+	private int intensidad; // Qué tan fuerte es (valor de 1 a 10)
+	private int tipo; // Qué tipo de emoción es (de las que definimos arriba)
+	private int origen; // De dónde viene la emoción (también de los de arriba)
+	private Recuerdo recuerdo; // Puede estar relacionada con un recuerdo
+	private boolean activa; // Está encendida o apagada (existe o no en el momento)
 
 	/******************************************************************************************************
 	 * CONSTRUCTORES
 	 ******************************************************************************************************/
-	// Constructor vacío, se asignan valores por defecto
+	// Constructor vacío, si no nos dicen nada, ponemos valores por defecto
 	public Emocion() {
 		this.nombre = "";
 		this.descripcion = "";
-		this.intensidad = 1;
-		this.tipo = ALEGRIA;
-		this.origen = VISUAL;
-		this.recuerdo = null; // Por defecto no tiene recuerdo
-		this.activa = true;
+		this.intensidad = 1; // Nivel más bajo de emoción
+		this.tipo = ALEGRIA; // Por defecto, la vida es bella :)
+		this.origen = VISUAL; // Suponemos que viene de algo que vimos
+		this.recuerdo = null; // No está ligada a ningún recuerdo
+		this.activa = true; // La emoción está encendida
 	}
 
-	// Constructor con parámetros para asignar valores específicos
+	// Constructor con parámetros, por si queremos definir la emoción desde el inicio con datos específicos
 	public Emocion(String nombre, String descripcion, int intensidad, int tipo, int origen, Recuerdo recuerdo,
 			boolean activa) {
 		this.nombre = nombre;
@@ -61,24 +62,24 @@ public class Emocion {
 	/***********************************************************************************************************
 	 * METODOS Y FUNCIONES
 	 ***********************************************************************************************************/
-	// Este método dice si la emoción es positiva, solo será positiva si es Alegría,
-	// Amor o Placer
-	// Y además no puede ser generada
+	// Este método revisa si la emoción es positiva
+	// Se considera positiva si es Alegría, Amor o Placer, pero OJO, no puede ser generada artificialmente
 	public boolean esPositiva() {
 		return (tipo == ALEGRIA || tipo == AMOR || tipo == PLACER) && origen != GENERADA;
 	}
 
-	// Aquí verificamos si la emoción es fiable. Si es generada, no lo es.
-	// También verificamos si el origen es memoria y el recuerdo asociado no es fiel
+	// Este método nos dice si podemos confiar en la emoción (si es "fiable")
+	// Si es generada, ya valió, no es fiable
+	// Si viene de un recuerdo y el recuerdo no es fiel, tampoco es fiable
 	public boolean esFiable() {
 		if (origen == GENERADA)
-			return false; // Si es generada, no es fiable
+			return false; // Si fue inventada, no es confiable
 		if (origen == MEMORIA && (recuerdo == null || !recuerdo.esFiel()))
-			return false; // Si el origen es memoria y el recuerdo no es fiel, no es fiable
-		return true;
+			return false; // Si viene de un recuerdo falso o sin recuerdo, no es confiable
+		return true; // Si pasa estas pruebas, es fiable
 	}
 
-	// toString muestra la emoción de forma bonita y ordenada
+	// Método toString, esto nos ayuda a mostrar la emoción en texto de forma ordenada y bonita
 	public String toString() {
 		return "Emoción: " + nombre + "\nDescripción: " + descripcion + "\nIntensidad: " + intensidad + "\nTipo: "
 				+ tipo + "\nOrigen: " + origen + "\nActiva: " + activa;
