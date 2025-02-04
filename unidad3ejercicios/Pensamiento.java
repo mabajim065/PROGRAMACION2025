@@ -5,58 +5,48 @@ import java.util.ArrayList;
 public class Pensamiento {
 
 	/******************************************************************************************************
-	 * VARIABLES ESTATICAS
+	 * VARIABLES ESTÁTICAS
 	 ******************************************************************************************************/
-	// Definimos las constantes para las categorías y tipos de pensamiento
-	public static final int SOCIAL = 1;
-	public static final int RACIONAL = 2;
-	public static final int AUTOMATICO = 3;
-	public static final int PRIMARIO = 4;
+	// Tipos de categorías de pensamientos
+	public static final int SOCIAL = 1; // Pensamientos sobre la gente y relaciones
+	public static final int RACIONAL = 2; // Pensamientos lógicos, basados en razonamiento
+	public static final int AUTOMATICO = 3; // Pensamientos que surgen sin darnos cuenta
+	public static final int PRIMARIO = 4; // Pensamientos más básicos e instintivos
 
-	public static final int PURO = 1;
-	public static final int GENERADO_RECUERDO = 2;
-	public static final int GENERADO_EMOCION = 3;
-	public static final int MIXTO = 4;
+	// Tipos de pensamientos según su origen
+	public static final int PURO = 1; // Pensamiento que no tiene influencia externa
+	public static final int GENERADO_RECUERDO = 2; // Provocado por un recuerdo
+	public static final int GENERADO_EMOCION = 3; // Provocado por una emoción
+	public static final int MIXTO = 4; // Mezcla de varias cosas
 
 	/******************************************************************************************************
-	 * VARIABLES MIEMBROS
+	 * VARIABLES MIEMBRO
 	 ******************************************************************************************************/
-	private String nombre; // Nombre del pensamiento
-	private String descripcion; // Descripción del pensamiento
-	public int importancia; // Importancia del pensamiento (1 a 10)
-	private int categoria; // La categoría del pensamiento (social, racional, etc.)
-	private int tipo; // El tipo de pensamiento (puros, generados por recuerdos, etc.)
-	private boolean activo; // Si el pensamiento está activo o no
-	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos asociados a este pensamiento
-	private ArrayList<Emocion> listaEmociones; // Lista de emociones asociadas a este pensamiento
+	private String nombre; // Nombre del pensamiento (cómo lo llamaríamos)
+	private String descripcion; // Pequeña explicación del pensamiento
+	public int importancia; // Qué tan relevante es este pensamiento (de 1 a 10)
+	private int categoria; // Tipo de pensamiento (Social, Racional, etc.)
+	private int tipo; // Si es puro, generado por emoción, etc.
+	private boolean activo; // Si está en nuestra mente en ese momento o no
+	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos relacionados con este pensamiento
+	private ArrayList<Emocion> listaEmociones; // Lista de emociones relacionadas con este pensamiento
 
 	/******************************************************************************************************
 	 * CONSTRUCTORES
 	 ******************************************************************************************************/
-	// Constructor vacío, con valores predeterminados
+	// Constructor por defecto, crea un pensamiento vacío con valores estándar
 	public Pensamiento() {
 		this.nombre = "";
 		this.descripcion = "";
-		this.importancia = 5;
-		this.categoria = RACIONAL;
-		this.tipo = PURO;
-		this.activo = true;
-		this.listaRecuerdos = new ArrayList<>();
-		this.listaEmociones = new ArrayList<>();
+		this.importancia = 5; // Un nivel medio de importancia
+		this.categoria = RACIONAL; // Por defecto, es un pensamiento racional
+		this.tipo = PURO; // Un pensamiento sin influencia externa
+		this.activo = true; // Se asume que el pensamiento está activo
+		this.listaRecuerdos = new ArrayList<>(); // Inicializa la lista vacía
+		this.listaEmociones = new ArrayList<>(); // Inicializa la lista vacía
 	}
 
-	/**************************************
-	 * CONSTRUCTOR CON PARÁMETROS
-	 *************************************
-	 * 
-	 * @param nombre
-	 * @param descripcion
-	 * @param importancia
-	 * @param categoria
-	 * @param tipo
-	 * @param activo
-	 */
-	// Constructor con parámetros para definir todos los valores
+	// Constructor con parámetros para personalizar los valores
 	public Pensamiento(String nombre, String descripcion, int importancia, int categoria, int tipo, boolean activo) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -68,17 +58,16 @@ public class Pensamiento {
 		this.listaEmociones = new ArrayList<>();
 	}
 
-	/***********************************************************************************************************
-	 * METODOS Y FUNCIONES
-	 ***********************************************************************************************************/
-	// Este método valida si el pensamiento es válido o no
+	/******************************************************************************************************
+	 * MÉTODOS Y FUNCIONES
+	 ******************************************************************************************************/
+	// Verifica si el pensamiento es válido según diferentes reglas
 	public int esValido() {
-		// Fase 1: Validamos si los recuerdos y emociones son fiables según el tipo de
-		// pensamiento
+		// Primera fase: Revisamos si los recuerdos y emociones son confiables
 		if (tipo == GENERADO_RECUERDO || tipo == MIXTO) {
 			for (Recuerdo recuerdo : listaRecuerdos) {
 				if (!recuerdo.esFiel()) {
-					return 2; // Si el recuerdo no es fiel, el pensamiento es inválido
+					return 2; // Si algún recuerdo no es fiel, el pensamiento no es válido
 				}
 			}
 		}
@@ -86,57 +75,55 @@ public class Pensamiento {
 		if (tipo == GENERADO_EMOCION || tipo == MIXTO) {
 			for (Emocion emocion : listaEmociones) {
 				if (!emocion.esFiable()) {
-					return 3; // Si la emoción no es fiable, el pensamiento es inválido
+					return 3; // Si la emoción no es fiable, el pensamiento tampoco lo es
 				}
 			}
 		}
 
-		// Fase 2: Comprobamos condiciones especiales donde el pensamiento no puede ser
-		// válido
-		if ((categoria == PRIMARIO && tipo == GENERADO_EMOCION) || (categoria == AUTOMATICO && tipo == GENERADO_EMOCION)
-				|| (categoria == SOCIAL && tipo == GENERADO_EMOCION)) {
-			return 4; // Si el pensamiento es de una categoría que no puede generar emociones, no es
-						// válido
+		// Segunda fase: Algunas combinaciones de categorías y tipos no son válidas
+		if ((categoria == PRIMARIO && tipo == GENERADO_EMOCION) || 
+			(categoria == AUTOMATICO && tipo == GENERADO_EMOCION) || 
+			(categoria == SOCIAL && tipo == GENERADO_EMOCION)) {
+			return 4; // Si es una categoría que no debería generar emociones, no es válido
 		}
 
-		// Fase 3: Si la importancia es mayor a 8, las emociones no pueden estar
-		// involucradas
+		// Tercera fase: Si es muy importante (mayor o igual a 8), no puede depender de emociones
 		if (importancia >= 8) {
 			for (Emocion emocion : listaEmociones) {
 				if (emocion.esFiable()) {
-					return 5; // Si la emoción es fiable, no es válido
+					return 5; // No puede haber emociones confiables en pensamientos muy importantes
 				}
 			}
 		}
 
-		return 1; // Si pasa todas las fases, el pensamiento es válido
+		return 1; // Si pasa todas las pruebas, el pensamiento es válido
 	}
 
-	// Aquí agregamos un recuerdo a la lista
+	// Agrega un recuerdo a la lista
 	public void agregarRecuerdo(Recuerdo recuerdo) {
 		listaRecuerdos.add(recuerdo);
 	}
 
-	// Aquí agregamos una emoción a la lista
+	// Agrega una emoción a la lista
 	public void agregarEmocion(Emocion emocion) {
 		listaEmociones.add(emocion);
 	}
 
-	// Este método elimina un recuerdo en base al índice
+	// Elimina un recuerdo por índice (si el índice es válido)
 	public void eliminarRecuerdo(int index) {
 		if (index >= 0 && index < listaRecuerdos.size()) {
 			listaRecuerdos.remove(index);
 		}
 	}
 
-	// Este método elimina una emoción en base al índice
+	// Elimina una emoción por índice (si el índice es válido)
 	public void eliminarEmocion(int index) {
 		if (index >= 0 && index < listaEmociones.size()) {
 			listaEmociones.remove(index);
 		}
 	}
 
-	// Este método muestra un resumen del pensamiento, emociones y recuerdos
+	// Muestra un resumen del pensamiento junto con sus recuerdos y emociones asociadas
 	public void mostrarResumen() {
 		System.out.println("Pensamiento: " + nombre);
 		System.out.println("Descripción: " + descripcion);
@@ -148,13 +135,13 @@ public class Pensamiento {
 		// Mostramos los recuerdos
 		System.out.println("\nRecuerdos: ");
 		for (Recuerdo recuerdo : listaRecuerdos) {
-			System.out.println(recuerdo); // Se asume que la clase Recuerdo tiene un método toString()
+			System.out.println(recuerdo); // Se asume que Recuerdo tiene toString()
 		}
 
 		// Mostramos las emociones
 		System.out.println("\nEmociones: ");
 		for (Emocion emocion : listaEmociones) {
-			System.out.println(emocion); // Se asume que la clase Emocion tiene un método toString()
+			System.out.println(emocion); // Se asume que Emocion tiene toString()
 		}
 	}
 }
