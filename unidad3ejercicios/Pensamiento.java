@@ -8,28 +8,28 @@ public class Pensamiento {
 	 * VARIABLES ESTÁTICAS
 	 ******************************************************************************************************/
 	// Tipos de categorías de pensamientos
-	public static final int SOCIAL = 1; // Pensamientos sobre la gente y relaciones
-	public static final int RACIONAL = 2; // Pensamientos lógicos, basados en razonamiento
-	public static final int AUTOMATICO = 3; // Pensamientos que surgen sin darnos cuenta
-	public static final int PRIMARIO = 4; // Pensamientos más básicos e instintivos
+	public static final int SOCIAL = 1; 
+	public static final int RACIONAL = 2; 
+	public static final int AUTOMATICO = 3; 
+	public static final int PRIMARIO = 4; 
 
 	// Tipos de pensamientos según su origen
-	public static final int PURO = 1; // Pensamiento que no tiene influencia externa
-	public static final int GENERADO_RECUERDO = 2; // Provocado por un recuerdo
-	public static final int GENERADO_EMOCION = 3; // Provocado por una emoción
-	public static final int MIXTO = 4; // Mezcla de varias cosas
+	public static final int PURO = 1; 
+	public static final int GENERADO_RECUERDO = 2; 
+	public static final int GENERADO_EMOCION = 3;
+	public static final int MIXTO = 4; 
 
 	/******************************************************************************************************
 	 * VARIABLES MIEMBRO
 	 ******************************************************************************************************/
-	private String nombre; // Nombre del pensamiento (cómo lo llamaríamos)
-	private String descripcion; // Pequeña explicación del pensamiento
-	public int importancia; // Qué tan relevante es este pensamiento (de 1 a 10)
-	private int categoria; // Tipo de pensamiento (Social, Racional, etc.)
-	private int tipo; // Si es puro, generado por emoción, etc.
-	private boolean activo; // Si está en nuestra mente en ese momento o no
-	private ArrayList<Recuerdo> listaRecuerdos; // Lista de recuerdos relacionados con este pensamiento
-	private ArrayList<Emocion> listaEmociones; // Lista de emociones relacionadas con este pensamiento
+	private String nombre;
+	private String descripcion; 
+	public int importancia; 
+	private int categoria; 
+	private int tipo; 
+	private boolean activo; 
+	private ArrayList<Recuerdo> listaRecuerdos; 
+	private ArrayList<Emocion> listaEmociones; 
 
 	/******************************************************************************************************
 	 * CONSTRUCTORES
