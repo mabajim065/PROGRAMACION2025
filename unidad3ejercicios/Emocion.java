@@ -1,87 +1,158 @@
-package unidad3ejercicios;
+package TEMA3;
 
-public class Emocion {
+	public class Emocion {
 
-	/******************************************************************************************************
-	 * VARIABLES ESTATICAS
-	 ******************************************************************************************************/
-	// Estas son las emociones que podemos manejar, cada una con su numerito para identificarlas
-	public static final int ENVIDIA = 1;
-	public static final int PENA = 2;
-	public static final int ALEGRIA = 3;
-	public static final int ASCO = 4;
-	public static final int PLACER = 5;
-	public static final int AMOR = 6;
-	public static final int ODIO = 7;
-	public static final int VERGUENZA = 8;
+		//Creamos las diferentes constantes para tipo
+		public static final String ENVIDIA = "Envidia";
+		public static final String PENA = "Pena";
+		public static final String ALEGRIA = "Alegria";
+		public static final String ASCO = "Asco";
+		public static final String PLACER = "Placer";
+		public static final String AMOR = "Amor";
+		public static final String ODIO = "Odio";
+		public static final String VERGUENZA = "Verguenza";
+		
+		//Creamos las diferntes constantes para origen
+		public static final String VISUAL = "Visual";
+		public static final String MEMORIA = "Memoria";
+		public static final String OLFATO = "Olfato";
+		public static final String TACTIL = "Tactil";
+		public static final String GENERADA = "Generada";
+		
+		
+		//Creamos las variables miembros
+		private String nombre;
+		private String descripcion;
+		private int intensidad;
+		private String tipo;
+		private String origen;
+		private Recuerdo recuerdo;
+		private boolean activa;
+		
+		
+		/**************************************************************
+		 * CONSTRUCTORES
+		 *************************************************************/
+		
+		public Emocion() {
+			super();
+			this.nombre = " ";
+			this.descripcion = "";
+			if (intensidad>=1 || intensidad<=10 );//el if va siempre emcima de la variable que sea
+			this.intensidad = 0;//rango de 1-10
+			
+			this.tipo = " ";
+			this.origen ="";
+			this.recuerdo =null ;
+			this.activa = true;
+		}
 
-	// Aquí definimos de dónde pueden venir esas emociones
-	public static final int VISUAL = 1;
-	public static final int MEMORIA = 2;
-	public static final int OLFATO = 3;
-	public static final int TACTIL = 4;
-	public static final int GENERADA = 5;
+		
+		public Emocion(String nombre, String descripcion, int intensidad, String tipo, String origen, Recuerdo recuerdo,
+				boolean activa) {
+			super();
+			this.nombre = nombre;
+			this.descripcion = descripcion;
+			this.intensidad = intensidad;
+			this.tipo = tipo;
+			this.origen = origen;
+			this.recuerdo = recuerdo;
+			this.activa = activa;
+		}
+		
+		
 
-	/******************************************************************************************************
-	 * VARIABLES MIEMBROS
-	 ******************************************************************************************************/
-	private String nombre; // Cómo se llama la emoción
-	private String descripcion; // Un poco de contexto sobre la emoción
-	private int intensidad; // Qué tan fuerte es (valor de 1 a 10)
-	private int tipo; // Qué tipo de emoción es (de las que definimos arriba)
-	private int origen; // De dónde viene la emoción (también de los de arriba)
-	private Recuerdo recuerdo; // Puede estar relacionada con un recuerdo
-	private boolean activa; // Está encendida o apagada (existe o no en el momento)
+		
+		/**************************************************************
+		 * GETTERS Y SETTERS DE LA CLASE
+		 *************************************************************/
+		
+		
+		public String getNombre() {
+			return nombre;
+		}
 
-	/******************************************************************************************************
-	 * CONSTRUCTORES
-	 ******************************************************************************************************/
-	// Constructor vacío, si no nos dicen nada, ponemos valores por defecto
-	public Emocion() {
-		this.nombre = "";
-		this.descripcion = "";
-		this.intensidad = 1; // Nivel más bajo de emoción
-		this.tipo = ALEGRIA; // Por defecto, la vida es bella :)
-		this.origen = VISUAL; // Suponemos que viene de algo que vimos
-		this.recuerdo = null; // No está ligada a ningún recuerdo
-		this.activa = true; // La emoción está encendida
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+		public String getDescripcion() {
+			return descripcion;
+		}
+
+		public void setDescripcion(String descripcion) {
+			this.descripcion = descripcion;
+		}
+
+		public int getIntensidad() {
+			return intensidad;
+		}
+
+		public void setIntensidad(int intensidad) {
+			this.intensidad = intensidad;
+		}
+
+		public String getTipo() {
+			return tipo;
+		}
+
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
+
+		public String getOrigen() {
+			return origen;
+		}
+
+		public void setOrigen(String origen) {
+			this.origen = origen;
+		}
+
+		public Recuerdo getRecuerdo() {
+			return recuerdo;
+		}
+
+		public void setRecuerdo(Recuerdo recuerdo) {
+			this.recuerdo = recuerdo;
+		}
+
+		public boolean isAtiva() {
+			return activa;
+		}
+
+		public void setAtiva(boolean activa) {
+			this.activa = activa;
+		}
+
+		@Override
+		public String toString() {
+			return "Emocion: \nnombre=" + nombre + " \ndescripcion=" + descripcion + " \nintensidad=" + intensidad
+					+ " \ntipo=" + tipo + " \norigen=" + origen + " \nrecuerdo=" + recuerdo + " \nactiva=" + activa;
+		}
+		public static void main( String [] arg) {
+			Recuerdo d = new Recuerdo ();
+			System.out.println(d);}
+		
+		/********************************************
+		 * 			METODOS O FUNCIONES 			*
+		 *******************************************/
+		//public boolean esPositiva(): Devolverá true si es una emoción de tipo alegria, amor 
+		//o placer y no es generada.
+		
+		public boolean esPositiva() {
+			
+			if (tipo== ALEGRIA  || tipo== AMOR   || tipo== PLACER && origen != GENERADA );
+				return true;
+		}
+		
+		//public boolean esFiable(): Una emoción será fiable si no es generada ni ocurre que su origen 
+		//es la memoria y el recuerdo no es fiel.
+		
+		public boolean esFiable() {
+			if(origen!= GENERADA && origen == MEMORIA && recuerdo.esFiel() ) {
+			}
+			return false ;
+		}
+		
 	}
 
-	// Constructor con parámetros, por si queremos definir la emoción desde el inicio con datos específicos
-	public Emocion(String nombre, String descripcion, int intensidad, int tipo, int origen, Recuerdo recuerdo,
-			boolean activa) {
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.intensidad = intensidad;
-		this.tipo = tipo;
-		this.origen = origen;
-		this.recuerdo = recuerdo;
-		this.activa = activa;
-	}
-
-	/***********************************************************************************************************
-	 * METODOS Y FUNCIONES
-	 ***********************************************************************************************************/
-	// Este método revisa si la emoción es positiva
-	// Se considera positiva si es Alegría, Amor o Placer, pero OJO, no puede ser generada artificialmente
-	public boolean esPositiva() {
-		return (tipo == ALEGRIA || tipo == AMOR || tipo == PLACER) && origen != GENERADA;
-	}
-
-	// Este método nos dice si podemos confiar en la emoción (si es "fiable")
-	// Si es generada, ya valió, no es fiable
-	// Si viene de un recuerdo y el recuerdo no es fiel, tampoco es fiable
-	public boolean esFiable() {
-		if (origen == GENERADA)
-			return false; // Si fue inventada, no es confiable
-		if (origen == MEMORIA && (recuerdo == null || !recuerdo.esFiel()))
-			return false; // Si viene de un recuerdo falso o sin recuerdo, no es confiable
-		return true; // Si pasa estas pruebas, es fiable
-	}
-
-	// Método toString, esto nos ayuda a mostrar la emoción en texto de forma ordenada y bonita
-	public String toString() {
-		return "Emoción: " + nombre + "\nDescripción: " + descripcion + "\nIntensidad: " + intensidad + "\nTipo: "
-				+ tipo + "\nOrigen: " + origen + "\nActiva: " + activa;
-	}
-}
