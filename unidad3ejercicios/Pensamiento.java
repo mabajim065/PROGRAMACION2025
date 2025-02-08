@@ -1,147 +1,366 @@
-package unidad3ejercicios;
+package TEMA3;
 
-import java.util.ArrayList;
+	import java.util.ArrayList;
 
-public class Pensamiento {
 
-	/******************************************************************************************************
-	 * VARIABLES ESTÁTICAS
-	 ******************************************************************************************************/
-	// Tipos de categorías de pensamientos
-	public static final int SOCIAL = 1; 
-	public static final int RACIONAL = 2; 
-	public static final int AUTOMATICO = 3; 
-	public static final int PRIMARIO = 4; 
+	public class Pensamiento {
+		/********************************************
+		 * 			VARIABLES ESTATICAS 			*
+		 *******************************************/
+		
+		//Creamos las constantes para categorias
+		public static final String SOCIAL = "Social";
+		public static final String RACIONAL = "Racional";
+		public static final String AUTOMATICO = "Automatico";
+		public static final String PRIMARIO = "Primario";
+		
+		//Creamos las cosntantes para tipo
+		public static final String PURO = "Puro";
+		public static final String GENERADO_RECUERDO = "Generado recuerdo";
+		public static final String GENERADO_EMOCION = "Generado emocion";
+		public static final String MIXTO = "Mixto";
+		
+		
+		/********************************************
+		 * 			VARIABLES MIEMBRO 				*
+		 *******************************************/
+		
+		//Creamos las variables miembro
+		private String nombre;
+		private String descripcion;
+		private int importancia; //Tendra un rango del 1-10
+		private String categoria;
+		private String tipo;
+		private boolean activo;
+		
+		//Creamos los ArrayList para recuerdo y emocion
+		ArrayList<Recuerdo> listaRecuerdo;
+		ArrayList<Emocion> listaEmocion;
+		
+		
+		/**************************************************************
+		 * CONSTRUCTORES
+		 *************************************************************/
+		public Pensamiento() {
+			super();
+			this.nombre = "";
+			this.descripcion = "";
+			if(importancia >=1 || importancia <=10);
+			this.importancia = 0;
+			this.categoria = "";
+			this.tipo = "";
+			this.activo = true;
+			this.listaRecuerdo = null; //pongo null para inicializarla
+			this.listaEmocion = null;
+		}
+		
+		public Pensamiento(String nombre, String descripcion, int importancia, String categoria, String tipo,
+				boolean activo, ArrayList<Recuerdo> listaRecuerdo, ArrayList<Emocion> listaEmocion) {
+			super();
+			this.nombre = nombre;
+			this.descripcion = descripcion;
+			this.importancia = importancia;
+			this.categoria = categoria;
+			this.tipo = tipo;
+			this.activo = activo;
+			this.listaRecuerdo = listaRecuerdo;
+			this.listaEmocion = listaEmocion;
+		}
+		
+		
 
-	// Tipos de pensamientos según su origen
-	public static final int PURO = 1; 
-	public static final int GENERADO_RECUERDO = 2; 
-	public static final int GENERADO_EMOCION = 3;
-	public static final int MIXTO = 4; 
+		/**************************************************************
+		 * GETTERS Y SETTERS DE LA CLASE
+		 *************************************************************/
+		
+		
+		public String getNombre() {
+			return nombre;
+		}
 
-	/******************************************************************************************************
-	 * VARIABLES MIEMBRO
-	 ******************************************************************************************************/
-	private String nombre;
-	private String descripcion; 
-	public int importancia; 
-	private int categoria; 
-	private int tipo; 
-	private boolean activo; 
-	private ArrayList<Recuerdo> listaRecuerdos; 
-	private ArrayList<Emocion> listaEmociones; 
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
 
-	/******************************************************************************************************
-	 * CONSTRUCTORES
-	 ******************************************************************************************************/
-	// Constructor por defecto, crea un pensamiento vacío con valores estándar
-	public Pensamiento() {
-		this.nombre = "";
-		this.descripcion = "";
-		this.importancia = 5; // Un nivel medio de importancia
-		this.categoria = RACIONAL; // Por defecto, es un pensamiento racional
-		this.tipo = PURO; // Un pensamiento sin influencia externa
-		this.activo = true; // Se asume que el pensamiento está activo
-		this.listaRecuerdos = new ArrayList<>(); // Inicializa la lista vacía
-		this.listaEmociones = new ArrayList<>(); // Inicializa la lista vacía
-	}
+		public String getDescripcion() {
+			return descripcion;
+		}
 
-	// Constructor con parámetros para personalizar los valores
-	public Pensamiento(String nombre, String descripcion, int importancia, int categoria, int tipo, boolean activo) {
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.importancia = importancia;
-		this.categoria = categoria;
-		this.tipo = tipo;
-		this.activo = activo;
-		this.listaRecuerdos = new ArrayList<>();
-		this.listaEmociones = new ArrayList<>();
-	}
+		public void setDescripcion(String descripcion) {
+			this.descripcion = descripcion;
+		}
 
-	/******************************************************************************************************
-	 * MÉTODOS Y FUNCIONES
-	 ******************************************************************************************************/
-	// Verifica si el pensamiento es válido según diferentes reglas
-	public int esValido() {
-		// Primera fase: Revisamos si los recuerdos y emociones son confiables
-		if (tipo == GENERADO_RECUERDO || tipo == MIXTO) {
-			for (Recuerdo recuerdo : listaRecuerdos) {
-				if (!recuerdo.esFiel()) {
-					return 2; // Si algún recuerdo no es fiel, el pensamiento no es válido
+		public int getImportancia() {
+			return importancia;
+		}
+
+		public void setImportancia(int importancia) {
+			this.importancia = importancia;
+		}
+
+		public String getCategoria() {
+			return categoria;
+		}
+
+		public void setCategoria(String categoria) {
+			this.categoria = categoria;
+		}
+
+		public String getTipo() {
+			return tipo;
+		}
+
+		public void setTipo(String tipo) {
+			this.tipo = tipo;
+		}
+
+		public boolean isAtivo() {
+			return activo;
+		}
+
+		public void setAtivo(boolean activo) {
+			this.activo = activo;
+		}
+
+		public ArrayList<Recuerdo> getListaRecuerdo() {
+			return listaRecuerdo;
+		}
+
+		public void setListaRecuerdo(ArrayList<Recuerdo> listaRecuerdo) {
+			this.listaRecuerdo = listaRecuerdo;
+		}
+
+		public ArrayList<Emocion> getListaEmocion() {
+			return listaEmocion;
+		}
+
+		public void setListaEmocion(ArrayList<Emocion> listaEmocion) {
+			this.listaEmocion = listaEmocion;
+		}
+
+		@Override
+		public String toString() {
+			return "Pensamiento: \nnombre=" + nombre + ", \ndescripcion=" + descripcion + ", \nimportancia=" + importancia
+					+ ", \ncategoria=" + categoria + ", \ntipo=" + tipo + ", \nactivo=" + activo + ", \nlistaRecuerdo="
+					+ listaRecuerdo + ", \nlistaEmocion=" + listaEmocion + "]";
+		}
+		
+		public static void main( String [] arg) {
+			Recuerdo c = new Recuerdo ("maripili", 10,6,4);
+			System.out.println(c);}
+		
+		/********************************************
+		 * 			METODOS O FUNCIONES 			*
+		 *******************************************/
+	/*
+	 * public int esValido(): 
+	 * Se definirán las siguientes constantes para el resultado de la función (VALIDO, RECUERDO_INVALIDO, EMOCION_INVALIDA, 
+	 * DEMASIADO_EMOCIONAL, PRIMARIO_EMOCIONAL, AUTOMATICO)
+	 * Comprobará en tres fases si es valido o hay que reconstruirlo:
+	 * Debe de superar las tres fases para ser VALIDO.
+	 */
+			public static final int VALIDO=0;
+			public static final int RECUERDO_INVALIDO= 1;	
+			public static final int EMOCION_INVALIDA= 2;
+			public static final int DEMASIADO_EMOCIONAL= 3;
+			public static final int PRIMARIO_EMOCIONAL=4;
+			public static final int AUTOMATIc=5 ; 
+		
+			public int esValido() {
+		/*
+		 * Primera Fase:Comprobará si todos los recuerdos asociados son fieles y las emociones asociadas son fiables. Utilizará 
+		 * bucles para recorrer las listas y condiciones para validar. Dependiendo del tipo de pensamiento comprobará sólo recuerdos
+		 * (GENERADO_RECUERDO), sólo emociones (GENERADO_EMOCION), las dos listas (MIXTO) o nada (PURO)	
+		 */
+			if(tipo== GENERADO_RECUERDO || tipo == MIXTO ) {
+				for (Recuerdo recuerdo : listaRecuerdo) {
+					if (!recuerdo.esFiel()) {
+						return 1;//0 no es valido
+					}
+			if (tipo==GENERADO_EMOCION || tipo==MIXTO) {
+				for(Emocion emocion: listaEmocion) {
+					if(!emocion.esFiable()) {
+						return 2 ;
+					}
 				}
 			}
-		}
-
-		if (tipo == GENERADO_EMOCION || tipo == MIXTO) {
-			for (Emocion emocion : listaEmociones) {
-				if (!emocion.esFiable()) {
-					return 3; // Si la emoción no es fiable, el pensamiento tampoco lo es
+			
+				
+		/*
+		 * Segunda Fase: El pensamiento no es válido si es primario y generado por una emoción. Tampoco será válido si es automático
+		 * y generado por una emoción o mixto ni si es SOCIAL y generado por alguna emoción.
+		 */
+			
+			if (categoria == PRIMARIO && tipo == GENERADO_EMOCION){
+					return 4;
+			}
+			
+			if (categoria == AUTOMATICO && (tipo == GENERADO_EMOCION || tipo== MIXTO))
+				     {
+				    return 5;
+					}
+			if(categoria == SOCIAL && tipo == GENERADO_EMOCION) {
+				return 3;
+			}
 				}
 			}
-		}
-
-		// Segunda fase: Algunas combinaciones de categorías y tipos no son válidas
-		if ((categoria == PRIMARIO && tipo == GENERADO_EMOCION) || 
-			(categoria == AUTOMATICO && tipo == GENERADO_EMOCION) || 
-			(categoria == SOCIAL && tipo == GENERADO_EMOCION)) {
-			return 4; // Si es una categoría que no debería generar emociones, no es válido
-		}
-
-		// Tercera fase: Si es muy importante (mayor o igual a 8), no puede depender de emociones
-		if (importancia >= 8) {
-			for (Emocion emocion : listaEmociones) {
-				if (emocion.esFiable()) {
-					return 5; // No puede haber emociones confiables en pensamientos muy importantes
-				}
+		/*
+		 * Tercera Fase: Si la importancia es mayor o igual a 8, las emociones no pueden intervenir.
+		 */
+		 if (importancia>=8 && listaEmocion!= null ) {
+			return 3;
+				 }
+			 	
+			return 0;
 			}
-		}
+			
+		/*
+		 * public int[] analizar(int tipo): el tipo puede ser 1 o 2 siendo 1 emociones y 2 recuerdos. Se deberán 
+		 * crear constantes para no utilizar números.
+		 */
+			//constantes tipo
+			public static final int TIPO_EMOCIONES = 1;
+			public static final int TIPO_RECUERDOS = 2;
+			
+			
+			public int[] analizar(int tipo) {
+				/*
+				 * Clasificará las emociones en positivas o negativas( dependiendo del tipo, por lógica), y los recuerdos 
+				 * en fiables y no fiables. 
+				 */
+				int positivos=0;
+				 int total=0;
+				
+				 //emociones 
+				 if (tipo== TIPO_EMOCIONES) {
+					total= listaEmocion.size();
+					for(int i=0; i<total;i++) {
+						if ( listaEmocion.get(i).esPositiva()) {
+							positivos++ ;
+						}
+					}
+				 }
+				 
+				 //recuerdos
+				 else if (tipo== TIPO_RECUERDOS) {
+						total= listaRecuerdo.size();
+						for(int i=0; i<total;i++) {
+							if ( listaRecuerdo.get(i).esFiel()) {
+								positivos++ ;
+							}
+						}
+					 }
+				//si no es ni positiva ni na va  ser porque es 0 todo.
+				 else {
+					return new int [] {0,0};
 
-		return 1; // Si pasa todas las pruebas, el pensamiento es válido
-	}
+				 }
+				/* Devolverá un número con el porcentaje de emociones positivas o el porcentaje de recuerdo fiables, 
+				 * dependiendo del tipo recibido.*/
+				 int porcentaje=0;
+				 porcentaje = positivos*100/total;
+				 return new int [] {total , porcentaje};
+			 }
 
-	// Agrega un recuerdo a la lista
-	public void agregarRecuerdo(Recuerdo recuerdo) {
-		listaRecuerdos.add(recuerdo);
-	}
+			    /*
+			     * agregarRecuerdo y agregarEmocion: Permitirán añadir recuerdos y emociones al pensamiento de forma controlada.
+			     */
+			    
+			    public void agregarRecuerdo(Recuerdo recuerdo) {
+			        listaRecuerdo.add(recuerdo); // Agrega un recuerdo a la lista
+			    }
 
-	// Agrega una emoción a la lista
-	public void agregarEmocion(Emocion emocion) {
-		listaEmociones.add(emocion);
-	}
+			    public void agregarEmocion(Emocion emocion) {
+			        listaEmocion.add(emocion); // Agrega una emoción a la lista
+			    }
 
-	// Elimina un recuerdo por índice (si el índice es válido)
-	public void eliminarRecuerdo(int index) {
-		if (index >= 0 && index < listaRecuerdos.size()) {
-			listaRecuerdos.remove(index);
-		}
-	}
+			    /*
+			     * eliminarRecuerdo y eliminarEmocion: Permitirán eliminar un recuerdo o emoción en particular.
+			     */
 
-	// Elimina una emoción por índice (si el índice es válido)
-	public void eliminarEmocion(int index) {
-		if (index >= 0 && index < listaEmociones.size()) {
-			listaEmociones.remove(index);
-		}
-	}
+			    public void eliminarRecuerdo(Recuerdo recuerdo) {
+			        listaRecuerdo.remove(recuerdo); // Busca y elimina el objeto si existe
+			    }
 
-	// Muestra un resumen del pensamiento junto con sus recuerdos y emociones asociadas
-	public void mostrarResumen() {
-		System.out.println("Pensamiento: " + nombre);
-		System.out.println("Descripción: " + descripcion);
-		System.out.println("Importancia: " + importancia);
-		System.out.println("Categoría: " + categoria);
-		System.out.println("Tipo: " + tipo);
-		System.out.println("Activo: " + activo);
+			    public void eliminarEmocion(Emocion emocion) {
+			        listaEmocion.remove(emocion); // Busca y elimina el objeto si existe
+			    }
 
-		// Mostramos los recuerdos
-		System.out.println("\nRecuerdos: ");
-		for (Recuerdo recuerdo : listaRecuerdos) {
-			System.out.println(recuerdo); // Se asume que Recuerdo tiene toString()
-		}
+			    /*
+			     * sobrecargadas para cada caso, pudiendo recibir el índice a eliminar o el objeto a eliminar.
+			     */
+			    
+			    //elimina recuerdo pero con indice 
+			    public void eliminarRecuerdo(int indice) {
+			        if (indice >= 0 && indice < listaRecuerdo.size()) {
+			            listaRecuerdo.remove(indice); // Elimina el recuerdo en la posición indicada
+			        }
+			    }
+			    
+			    //elimina emocion con el indice
+			    public void eliminarEmocion(int indice) {
+			        if (indice >= 0 && indice < listaEmocion.size()) {
+			            listaEmocion.remove(indice); // Elimina la emoción en la posición indicada
+			        }
+			    }
 
-		// Mostramos las emociones
-		System.out.println("\nEmociones: ");
-		for (Emocion emocion : listaEmociones) {
-			System.out.println(emocion); // Se asume que Emocion tiene toString()
-		}
-	}
-}
+			    //EliminarEmocion(Emocion emocion, int posActual) deberá de hacerse de forma recursiva.
+			    public void eliminarEmocion(Emocion emocion, int posActual) {
+			        if (posActual < listaEmocion.size()) {
+			            if (listaEmocion.get(posActual).equals(emocion)) {
+			                listaEmocion.remove(posActual); // Si la emoción son iguales, la elimina
+			            } else {
+			                eliminarEmocion(emocion, posActual + 1); 
+			            }
+			        }
+			    }
+			   
+			   /*
+			    * public void mostrarResumen()
+			    * Generará un resumen textual del pensamiento, recorriendo sus recuerdos y emociones y mostrando
+			    *  sus datos por pantalla, así cómo los datos del pensamiento.
+			    *  Mostrará bien formateados los datos del análisis del pensamiento y resultado de su análisis de validación.
+			    */
+			    
+			    public void mostrarResumen() {
+			    	System.out.println("*RESUMEN PENSAMIENTOS* ");
+			    	System.out.println("Descripcion: " + descripcion );
+			    	System.out.println("Importancia; " + importancia );
+			    	System.out.println("Categoria: " + categoria );
+			    	System.out.println("Tipo: " + tipo );
+			    	System.out.println("Activo: " + activo );
+			    	
+			    	System.out.println(" *RESUMEN RECUERDOS ASOCIADOS*");
+			    	if (listaRecuerdo.isEmpty()) {
+			    		System.out.println(" LO SIENTO, no hay recuerdos asociados");}
+			    		else{
+			    			for(int i = 0; i<listaRecuerdo.size(); i++) {
+			    				System.out.println(listaRecuerdo.get(i));
+			    			}
+			    		}
+			    	
+			    	System.out.println(" *RESUMEN EMOCIONES ASOCIADAS*");
+			    	if (listaEmocion.isEmpty()) {
+			    		System.out.println(" LO SIENTO, no hay emociones asociadas");}
+			    		else{
+			    			for(int i = 0; i<listaEmocion.size(); i++) {
+			    				System.out.println(listaEmocion.get(i));
+			    			}
+			    		}
+			    	
+			    	
+			    	System.out.println(" *RESUMEN  ANALISIS PENSAMIENTO*");
+			    	
+			    	int validez= esValido();
+			    	System.out.println(" NUESTRA VALIDEZ ES: " + validez);
+			    	
+			    	int []  porcentajepos= analizar(1);
+			    	int []  porcentajesirve= analizar (2);
+			    	
+			    	System.out.println(" el porcentaje de los positivos va a ser : " + porcentajepos[1]+"%" );
+			    	System.out.println(" el porcentaje de los que sirven va a ser : " + porcentajesirve[1]+"%" );
+			    	
+			    	}
+			    }
+
+
