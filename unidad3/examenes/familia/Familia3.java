@@ -105,8 +105,7 @@ public class Familia3 {
 	}
 
 	/**
-	 * @param ingresosMensuales the ingresosMensuales
-	 *                          to set
+	 * @param ingresosMensuales the ingresosMensuales to set
 	 */
 	public void setIngresosMensuales(int ingresosMensuales) {
 		this.ingresosMensuales = ingresosMensuales;
@@ -134,10 +133,9 @@ public class Familia3 {
 				+ ", listaPersonas=" + Arrays.toString(listaPersonas) + "]";
 
 		/*
-		 * Este Código es equivalente al
-		 * Arrays.toString for (int
-		 * i=0;i<listaPersonas.length;i++) { salida =
-		 * salida + listaPersonas[i].toString(); }
+		 * Este Código es equivalente al Arrays.toString for (int
+		 * i=0;i<listaPersonas.length;i++) { salida = salida +
+		 * listaPersonas[i].toString(); }
 		 */
 
 		return salida;
@@ -145,24 +143,20 @@ public class Familia3 {
 	}
 
 	/**
-	 * Funcion que nos devuelve la cantidad de personas
-	 * de la familia
+	 * Funcion que nos devuelve la cantidad de personas de la familia
 	 * 
-	 * @return el numero de personas, la longitud del
-	 *         array
+	 * @return el numero de personas, la longitud del array
 	 */
 	public int numPersonas() {
 		return this.listaPersonas.length;
 	}
 
 	/**
-	 * devolverá la cantidad de personas de la familia
-	 * con ingreso inferior al introducido como
-	 * parámetro (1,5 puntos).
+	 * devolverá la cantidad de personas de la familia con ingreso inferior al
+	 * introducido como parámetro (1,5 puntos).
 	 * 
 	 * @param ingreso
-	 * @return un entero con el numero de personas que
-	 *         cumplen la condicion
+	 * @return un entero con el numero de personas que cumplen la condicion
 	 */
 	public int numPersonasIngresos(int ingreso) {
 		// Variable que cuenta las personas con
@@ -187,9 +181,8 @@ public class Familia3 {
 	}
 
 	/**
-	 * Sumará los ingresos de todos los miembros de la
-	 * familia y se los asigna a la variable
-	 * ingresosMensuales de la familia (1,5 puntos)
+	 * Sumará los ingresos de todos los miembros de la familia y se los asigna a la
+	 * variable ingresosMensuales de la familia (1,5 puntos)
 	 * 
 	 */
 	public void sumaIngresos() {
@@ -202,12 +195,10 @@ public class Familia3 {
 	}
 
 	/**
-	 * Buscará en el array de personas la que tenga el
-	 * nombre introducido cómo parámetro. Si no existe
-	 * devolverá falso. Si existe y esProgenitor
-	 * también devolverá falso. En caso de que no sea
-	 * progenitor cambiará el valor a true y devolverá
-	 * true.(1,5 puntos)
+	 * Buscará en el array de personas la que tenga el nombre introducido cómo
+	 * parámetro. Si no existe devolverá falso. Si existe y esProgenitor también
+	 * devolverá falso. En caso de que no sea progenitor cambiará el valor a true y
+	 * devolverá true.(1,5 puntos)
 	 * 
 	 * @param nombre
 	 * @param esProgenitor
@@ -246,5 +237,3 @@ public class Familia3 {
 	}
 
 }
-
-
