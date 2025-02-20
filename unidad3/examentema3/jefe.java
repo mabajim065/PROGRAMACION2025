@@ -1,4 +1,4 @@
-package examentema3;
+package unidad3.examentema3;
 
 public class jefe extends Empleado { // habia que poner extends para que fuera una clase hijo
 
