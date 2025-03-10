@@ -1,38 +1,36 @@
-package unidad3.examenrepaso;
+package unidad3.examenes.solucionexamen;
 
 public class Empleado {
 	/**************************************************************
 	 * VARIABLES
 	 *************************************************************/
-	//VARIABLES ESTATICAS
-	
+	// VARIABLES ESTATICAS
+
 	public static final int PUESTO_JEFE = 0;
 	public static final int PUESTO_RRHH = 1;
 	public static final int PUESTO_ADMIN = 2;
 	public static final int PUESTO_VENTAS = 3;
-	
-	//Variable miembro
+
+	// Variable miembro
 	protected int id;
 	private String nombre;
 	private int edad;
 	private double ingresos;
 	public int puesto;
 
-	
 	/**************************************************************
 	 * CONSTRUCTORES
 	 *************************************************************/
-	
+
 	public Empleado() {
 		super();
 		// TODO Auto-generated constructor stub
-		this.id = (int)(Math.random()*200);
+		this.id = (int) (Math.random() * 200);
 		this.nombre = "";
-		this.edad =(int)(Math.random()*50)+18 ;
-		this.ingresos = Math.random()*2000;
-		this.puesto = (int)(Math.random()*4);
+		this.edad = (int) (Math.random() * 50) + 18;
+		this.ingresos = Math.random() * 2000;
+		this.puesto = (int) (Math.random() * 4);
 	}
-
 
 	public Empleado(int id, String nombre, int edad, double ingresos, int puesto) {
 		super();
@@ -43,7 +41,6 @@ public class Empleado {
 		this.puesto = puesto;
 	}
 
-
 	/**************************************************************
 	 * GETTERS Y SETTERS DE LA CLASE
 	 *************************************************************/
@@ -52,41 +49,34 @@ public class Empleado {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public int getEdad() {
 		return edad;
 	}
 
-
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-
 
 	public double getIngresos() {
 		return ingresos;
 	}
 
-
 	public void setIngresos(double ingresos) {
 		this.ingresos = ingresos;
 	}
-	
+
 	/**************************************************************
 	 * TO STRING
 	 *************************************************************/
@@ -96,6 +86,5 @@ public class Empleado {
 		return "Empleado [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", ingresos=" + ingresos + ", puesto="
 				+ puesto + "]";
 	}
-	
 
 }
